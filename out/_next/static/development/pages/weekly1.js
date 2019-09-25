@@ -25,17 +25,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 function ContentLayout(props, _ref) {
   var prevId = _ref.prevId,
       nextId = _ref.nextId;
-  return __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "/",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
-  }, __jsx(ContentBox, {
+  return __jsx(ContentBox, {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
+    },
+    __self: this
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
     },
     __self: this
   }, __jsx("a", {
@@ -28988,7 +28988,7 @@ var ERRORS =  true ? {
   "9": "Missing document `<head>`\n\n",
   "10": "Cannot find a StyleSheet instance. Usually this happens if there are multiple copies of styled-components loaded at once. Check out this issue for how to troubleshoot and fix the common cases where this situation can happen: https://github.com/styled-components/styled-components/issues/1941#issuecomment-417862021\n\n",
   "11": "_This error was replaced with a dev-time warning, it will be deleted for v4 final._ [createGlobalStyle] received children which will not be rendered. Please use the component without passing children elements.\n\n",
-  "12": "It seems you are interpolating a keyframe declaration (%s) into an untagged string. This was supported in styled-components v3, but is not longer supported in v4 as keyframes are now injected on-demand. Please wrap your string in the css\\`\\` helper (see https://www.styled-components.com/docs/api#css), which ensures the styles are injected correctly.\n\n",
+  "12": "It seems you are interpolating a keyframe declaration (%s) into an untagged string. This was supported in styled-components v3, but is not longer supported in v4 as keyframes are now injected on-demand. Please wrap your string in the css\\`\\` helper which ensures the styles are injected correctly. See https://www.styled-components.com/docs/api#css\n\n",
   "13": "%s is not a styled component and cannot be referred to via component selector. See https://www.styled-components.com/docs/advanced#referring-to-other-components for more details.\n"
 } : undefined;
 
@@ -29223,9 +29223,9 @@ var sheetForTag = function sheetForTag(tag) {
   if (tag.sheet) return tag.sheet;
 
   /* Firefox quirk requires us to step through all stylesheets to find one owned by the given tag */
-  var size = document.styleSheets.length;
+  var size = tag.ownerDocument.styleSheets.length;
   for (var i = 0; i < size; i += 1) {
-    var sheet = document.styleSheets[i];
+    var sheet = tag.ownerDocument.styleSheets[i];
     // $FlowFixMe
     if (sheet.ownerNode === tag) return sheet;
   }
@@ -29279,9 +29279,12 @@ var addUpUntilIndex = function addUpUntilIndex(sizes, index) {
 
 /* create a new style tag after lastEl */
 var makeStyleTag = function makeStyleTag(target, tagEl, insertBefore) {
-  var el = document.createElement('style');
+  var targetDocument = document;
+  if (target) targetDocument = target.ownerDocument;else if (tagEl) targetDocument = tagEl.ownerDocument;
+
+  var el = targetDocument.createElement('style');
   el.setAttribute(SC_ATTR, '');
-  el.setAttribute(SC_VERSION_ATTR, "4.3.2");
+  el.setAttribute(SC_VERSION_ATTR, "4.4.0");
 
   var nonce = getNonce();
   if (nonce) {
@@ -29289,7 +29292,7 @@ var makeStyleTag = function makeStyleTag(target, tagEl, insertBefore) {
   }
 
   /* Work around insertRule quirk in EdgeHTML */
-  el.appendChild(document.createTextNode(''));
+  el.appendChild(targetDocument.createTextNode(''));
 
   if (target && !tagEl) {
     /* Append to target when no previous element was passed */
@@ -29310,7 +29313,7 @@ var makeStyleTag = function makeStyleTag(target, tagEl, insertBefore) {
 var wrapAsHtmlTag = function wrapAsHtmlTag(css, names) {
   return function (additionalAttrs) {
     var nonce = getNonce();
-    var attrs = [nonce && 'nonce="' + nonce + '"', SC_ATTR + '="' + stringifyNames(names) + '"', SC_VERSION_ATTR + '="' + "4.3.2" + '"', additionalAttrs];
+    var attrs = [nonce && 'nonce="' + nonce + '"', SC_ATTR + '="' + stringifyNames(names) + '"', SC_VERSION_ATTR + '="' + "4.4.0" + '"', additionalAttrs];
 
     var htmlAttr = attrs.filter(Boolean).join(' ');
     return '<style ' + htmlAttr + '>' + css() + '</style>';
@@ -29322,7 +29325,7 @@ var wrapAsElement = function wrapAsElement(css, names) {
   return function () {
     var _props;
 
-    var props = (_props = {}, _props[SC_ATTR] = stringifyNames(names), _props[SC_VERSION_ATTR] = "4.3.2", _props);
+    var props = (_props = {}, _props[SC_ATTR] = stringifyNames(names), _props[SC_VERSION_ATTR] = "4.4.0", _props);
 
     var nonce = getNonce();
     if (nonce) {
@@ -29397,6 +29400,8 @@ var makeSpeedyTag = function makeSpeedyTag(el, getImportRuleTag) {
   var removeRules = function removeRules(id) {
     var marker = markers[id];
     if (marker === undefined) return;
+    // $FlowFixMe
+    if (el.isConnected === false) return;
 
     var size = sizes[marker];
     var sheet = sheetForTag(el);
@@ -29452,8 +29457,8 @@ var makeSpeedyTag = function makeSpeedyTag(el, getImportRuleTag) {
   };
 };
 
-var makeTextNode = function makeTextNode(id) {
-  return document.createTextNode(makeTextMarker(id));
+var makeTextNode = function makeTextNode(targetDocument, id) {
+  return targetDocument.createTextNode(makeTextMarker(id));
 };
 
 var makeBrowserTag = function makeBrowserTag(el, getImportRuleTag) {
@@ -29471,7 +29476,7 @@ var makeBrowserTag = function makeBrowserTag(el, getImportRuleTag) {
       return prev;
     }
 
-    markers[id] = makeTextNode(id);
+    markers[id] = makeTextNode(el.ownerDocument, id);
     el.appendChild(markers[id]);
     names[id] = Object.create(null);
 
@@ -29509,7 +29514,7 @@ var makeBrowserTag = function makeBrowserTag(el, getImportRuleTag) {
     if (marker === undefined) return;
 
     /* create new empty text node and replace the current one */
-    var newMarker = makeTextNode(id);
+    var newMarker = makeTextNode(el.ownerDocument, id);
     el.replaceChild(newMarker, marker);
     markers[id] = newMarker;
     resetIdNames(names, id);
@@ -29729,7 +29734,7 @@ var StyleSheet = function () {
     var isStreamed = false;
 
     /* retrieve all of our SSR style elements from the DOM */
-    var nodes = document.querySelectorAll('style[' + SC_ATTR + '][' + SC_VERSION_ATTR + '="' + "4.3.2" + '"]');
+    var nodes = document.querySelectorAll('style[' + SC_ATTR + '][' + SC_VERSION_ATTR + '="' + "4.4.0" + '"]');
 
     var nodesSize = nodes.length;
 
@@ -30265,8 +30270,6 @@ function isStaticRules(rules, attrs) {
 
 // 
 
-var isHMREnabled =  true && module.hot;
-
 /* combines hashStr (murmurhash) and nameGenerator for convenience */
 var hasher = function hasher(str) {
   return generateAlphabeticName(murmurhash(str));
@@ -30282,7 +30285,7 @@ var ComponentStyle = function () {
     classCallCheck(this, ComponentStyle);
 
     this.rules = rules;
-    this.isStatic = !isHMREnabled && isStaticRules(rules, attrs);
+    this.isStatic =  false && false;
     this.componentId = componentId;
 
     if (!StyleSheet.master.hasId(componentId)) {
@@ -30291,10 +30294,10 @@ var ComponentStyle = function () {
   }
 
   /*
-     * Flattens a rule set into valid CSS
-     * Hashes it, wraps the whole chunk in a .hash1234 {}
-     * Returns the hash to be injected on render()
-     * */
+   * Flattens a rule set into valid CSS
+   * Hashes it, wraps the whole chunk in a .hash1234 {}
+   * Returns the hash to be injected on render()
+   * */
 
 
   ComponentStyle.prototype.generateAndInjectStyles = function generateAndInjectStyles(executionContext, styleSheet) {
@@ -30337,7 +30340,7 @@ var createWarnTooManyClasses = (function (displayName) {
       if (Object.keys(generatedClasses).length >= LIMIT) {
         // Unable to find latestRule in test environment.
         /* eslint-disable no-console, prefer-template */
-        console.warn('Over ' + LIMIT + ' classes were generated for component ' + displayName + '. \n' + 'Consider using the attrs method, together with a style object for frequently changed styles.\n' + 'Example:\n' + '  const Component = styled.div.attrs({\n' + '    style: ({ background }) => ({\n' + '      background,\n' + '    }),\n' + '  })`width: 100%;`\n\n' + '  <Component />');
+        console.warn('Over ' + LIMIT + ' classes were generated for component ' + displayName + '. \n' + 'Consider using the attrs method, together with a style object for frequently changed styles.\n' + 'Example:\n' + '  const Component = styled.div.attrs(props => ({\n' + '    style: {\n' + '      background: props.background,\n' + '    },\n' + '  }))`width: 100%;`\n\n' + '  <Component />');
         warningSeen = true;
         generatedClasses = {};
       }
@@ -30537,7 +30540,7 @@ var ThemeProvider = function (_Component) {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(
       ThemeContext.Provider,
       { value: context },
-      react__WEBPACK_IMPORTED_MODULE_2___default.a.Children.only(this.props.children)
+      this.props.children
     );
   };
 
@@ -30735,6 +30738,7 @@ var StyleSheetManager = function (_Component) {
 
 // 
 
+var THEME_PROP_REGEX = /\.theme[.[]/;
 var identifiers = {};
 
 /* We depend on components having unique IDs */
@@ -30823,21 +30827,31 @@ var StyledComponent = function (_Component) {
         displayName = _props$forwardedCompo.displayName,
         foldedComponentIds = _props$forwardedCompo.foldedComponentIds,
         styledComponentId = _props$forwardedCompo.styledComponentId,
-        target = _props$forwardedCompo.target;
+        target = _props$forwardedCompo.target,
+        usesTheme = _props$forwardedCompo.usesTheme;
 
 
     var generatedClassName = void 0;
+    var rawTheme = void 0;
+
     if (componentStyle.isStatic) {
       generatedClassName = this.generateAndInjectStyles(EMPTY_OBJECT, this.props);
     } else {
-      generatedClassName = this.generateAndInjectStyles(determineTheme(this.props, theme, defaultProps) || EMPTY_OBJECT, this.props);
+      rawTheme = determineTheme(this.props, theme, defaultProps);
+      generatedClassName = this.generateAndInjectStyles(rawTheme || EMPTY_OBJECT, this.props);
+
+      if ( true && usesTheme && !rawTheme) {
+        console.error('Component \'' +
+        // $FlowFixMe
+        displayName + '\' (.' + styledComponentId + ') references the \'theme\' prop in its styles but no theme was provided via prop or <ThemeProvider>.');
+      }
     }
 
     var elementToBeCreated = this.props.as || this.attrs.as || target;
     var isTargetTag = isTag(elementToBeCreated);
 
     var propsForElement = {};
-    var computedProps = _extends({}, this.attrs, this.props);
+    var computedProps = _extends({}, this.props, this.attrs);
 
     var key = void 0;
     // eslint-disable-next-line guard-for-in
@@ -30858,7 +30872,7 @@ var StyledComponent = function (_Component) {
       propsForElement.style = _extends({}, this.attrs.style, this.props.style);
     }
 
-    propsForElement.className = Array.prototype.concat(foldedComponentIds, this.props.className, styledComponentId, this.attrs.className, generatedClassName).filter(Boolean).join(' ');
+    propsForElement.className = Array.prototype.concat(foldedComponentIds, styledComponentId, generatedClassName !== styledComponentId ? generatedClassName : null, this.props.className, this.attrs.className).filter(Boolean).join(' ');
 
     return Object(react__WEBPACK_IMPORTED_MODULE_2__["createElement"])(elementToBeCreated, propsForElement);
   };
@@ -31017,6 +31031,11 @@ function createStyledComponent(target, options, rules) {
   });
 
   if (true) {
+    // $FlowFixMe
+    WrappedStyledComponent.usesTheme = componentStyle.rules.some(function (x) {
+      return isFunction(x) && THEME_PROP_REGEX.test(x.toString());
+    });
+
     // $FlowFixMe
     WrappedStyledComponent.warnTooManyClasses = createWarnTooManyClasses(displayName);
   }
@@ -32768,7 +32787,7 @@ var ContentBox = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.w
 
 /***/ }),
 
-/***/ 0:
+/***/ 2:
 /*!************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fweekly1&absolutePagePath=%2FUsers%2Fhome%2Fweekly-ui%2Fpages%2Fweekly1.js ***!
   \************************************************************************************************************************/
@@ -32791,5 +32810,5 @@ module.exports = dll_129a35c7ec57967eb265;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=weekly1.js.map
