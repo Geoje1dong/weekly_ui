@@ -5,13 +5,12 @@ import Link from 'next/link'
 
 export default function ContentLayout(props, {prevId, nextId}){
   return(
-    <Link href="/">
+    
     <ContentBox>
-      <a className="close"><X color="rgba(255,255,255,1)" size={48}/></a>
+      <Link href="/"><a className="close"><X color="rgba(255,255,255,1)" size={48}/></a></Link>
       {/* {prevId ? <Link href={`/weekly${prevId}`}><a className="left"><ChevronLeft color="rgba(255,255,255,1)" size={48}/></a></Link> : <button className="left"><ChevronLeft color="rgba(255,255,255,1)" size={48}/></button>}
       {nextId ? <Link href={`/weekly${nextId}`}><a className="right"><ChevronRight color="rgba(255,255,255,1)" size={48}/></a></Link> : <button className="right"><ChevronRight color="rgba(255,255,255,1)" size={48}/></button>} */}
     </ContentBox>
-    </Link>
   )
 }
 
