@@ -32,7 +32,7 @@ function ContentLayout(props, _ref) {
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "/",
+    href: "/".concat(props.prefix),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
@@ -32311,6 +32311,7 @@ function Weekly1(props) {
     getChangeTimeout();
   }, [change, dataWidth, infomationWidth]);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(_components_contentLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    prefix: props.prefix,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 44

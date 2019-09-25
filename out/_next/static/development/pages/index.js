@@ -34670,7 +34670,7 @@ var Home = function Home(props) {
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "/",
+    href: "/".concat(props.prefix),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13

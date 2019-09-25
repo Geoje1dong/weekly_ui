@@ -32,7 +32,7 @@ function ContentLayout(props, _ref) {
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "/",
+    href: "/".concat(props.prefix),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
@@ -63,4 +63,4 @@ var ContentBox = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.w
 /***/ })
 
 })
-//# sourceMappingURL=weekly1.js.4d225ef00fc02701558e.hot-update.js.map
+//# sourceMappingURL=weekly1.js.7c077414a1cd40c3d8c6.hot-update.js.map
