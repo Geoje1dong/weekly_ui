@@ -12162,8 +12162,7 @@ var GlobalStyle = Object(styled_components__WEBPACK_IMPORTED_MODULE_7__["createG
 
 var WeeklyUiApp = function WeeklyUiApp(_ref) {
   var Component = _ref.Component,
-      store = _ref.store,
-      pageProps = _ref.pageProps;
+      store = _ref.store;
   var prefix =  false ? undefined : '';
   return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
     store: store,
@@ -12184,17 +12183,25 @@ var WeeklyUiApp = function WeeklyUiApp(_ref) {
       lineNumber: 51
     },
     __self: this
-  }, "Weekly UI challenge")), __jsx(GlobalStyle, {
+  }, "Weekly UI challenge"), __jsx("link", {
+    rel: "stylesheet",
+    href: "https://pattern.kivan-works.com/fonts/kredit.css",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 52
+    },
+    __self: this
+  })), __jsx(GlobalStyle, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
     },
     __self: this
   }), __jsx(Component, {
     prefix: prefix,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 55
     },
     __self: this
   }));
@@ -12254,6 +12261,12 @@ var initialState = {
     title: 'Sign Up, Sign In',
     tag: '',
     page: 'weekly1',
+    coverImg: '/static/img/thumb/weekly01.png'
+  }, {
+    id: 2,
+    title: 'Credit Card Checkout',
+    tag: '',
+    page: 'weekly2',
     coverImg: '/static/img/thumb/weekly01.png'
   }]
 };
