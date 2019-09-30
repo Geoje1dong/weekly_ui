@@ -4,10 +4,11 @@ import { X, ChevronLeft, ChevronRight } from 'react-feather';
 import Link from 'next/link'
 
 export default function ContentLayout(props, {prevId, nextId}){
+  const homelink = process.env.NODE_ENV === 'production' ? '/weekly_ui' : '/';
   return(
     
     <ContentBox>
-      <Link href="/"><a className="close"><X color="rgba(255,255,255,1)" size={48}/></a></Link>
+      <Link href={homelink}><a className="close"><X color="rgba(255,255,255,1)" size={48}/></a></Link>
       {/* {prevId ? <Link href={`/weekly${prevId}`}><a className="left"><ChevronLeft color="rgba(255,255,255,1)" size={48}/></a></Link> : <button className="left"><ChevronLeft color="rgba(255,255,255,1)" size={48}/></button>}
       {nextId ? <Link href={`/weekly${nextId}`}><a className="right"><ChevronRight color="rgba(255,255,255,1)" size={48}/></a></Link> : <button className="right"><ChevronRight color="rgba(255,255,255,1)" size={48}/></button>} */}
     </ContentBox>

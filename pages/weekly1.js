@@ -41,7 +41,7 @@ export default function Weekly1(props){
 
   return(
     <>
-      <ContentLayout />
+      <ContentLayout prefix={props.prefix}/>
       <ContentBox>
         <SignUpBox ref={contentWidth}>
           <DataBox animation={animation} change={change} infomationWidth={infomationWidth}>

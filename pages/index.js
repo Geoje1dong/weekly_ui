@@ -6,15 +6,17 @@ import { ArrowRight } from 'react-feather'
 
 const Home = (props) => {
   const {mainPost} = useSelector(state => state.post)
+  const homelink = process.env.NODE_ENV === 'production' ? '/weekly_ui' : '/';
+
   return(
     <>
       <HeaderBox>
         <HeaderContent>
-          <Link href="/"><a><Logo><strong>Weekly UI</strong><br />challenge,</Logo></a></Link>
+          <Link href={homelink}><a><Logo><strong>Weekly UI</strong><br />challenge,</Logo></a></Link>
           <Intro>
-            저는 공부를 위해 Weekly UI 챌린지를 시작하였습니다.<br />
-            그 이유는 UI 디자인을 연습하고 개발하며 실험 및 많은 시행착오를 통해 경험을 쌓기 위해서였습니다.<br />
-            저는 기술을 향상하는 가장 빠른 방법이 많은 것을 만들고 경험해 보는 것 이라고 생각합니다.<br />
+            Weekly UI 챌린지를 시작하였습니다.<br />
+            그 이유는 UI 디자인을 연습하고 개발하며 실험 및 많은 시행착오를 통해 경험을 쌓기 위해서입니다.<br />
+            저는 기술을 향상하는 가장 빠른 방법이 많은 것을 만들고 경험해 보는 것이라고 생각합니다.<br />
             이 운동은 저의 시각적인 디자인 기술 및 UI 개발을 향상하며 패턴을 만들며 왜 그런 패턴이 사용되고 있는지를 이해하는 것에도 많은 도움을 줄 것이라고 믿고 있습니다.
             {/* <img src='/static/img/thumb/flower.jpg' alt='꽃 그림'/> */}
           </Intro>

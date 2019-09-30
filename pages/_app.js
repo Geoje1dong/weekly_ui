@@ -42,28 +42,20 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const WeeklyUiApp = ({ Component, store, pageProps }) => {
+const WeeklyUiApp = ({ Component, store }) => {
   const prefix = process.env.NODE_ENV === 'production' ? 'https://geoje1dong.github.io/weekly_ui' : '';
 
   return (
     <Provider store={store}>
       <Head>
         <title>Weekly UI challenge</title>
+        <link rel="stylesheet" href="https://pattern.kivan-works.com/fonts/kredit.css" />
       </Head>
       <GlobalStyle/>
-      <Component prefix={prefix} {...pageProps}/>
+      <Component prefix={prefix} />
     </Provider>
   );
 };
-
-WeeklyUiApp.getInitialProps = async(context) => {
-  const {ctx, Component} = context;
-  let pageProps = {};
-  if(Component.getInitialProps){
-    pageProps = await Component.getInitialProps(ctx) || {};
-  }
-  return {pageProps}
-}
 
 const configureStore = (initialState, options) => {
   const middlewares = [];

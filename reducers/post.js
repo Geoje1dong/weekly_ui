@@ -9,34 +9,13 @@ export const initialState = {
       page:'weekly1',
       coverImg:'/static/img/thumb/weekly01.png',
     },
-    // {
-    //   id:2,
-    //   title:'Credit Card Checkout',
-    //   tag:'',
-    //   page:'weekly2',
-    //   coverImg:'/static/img/thumb/weekly01.png',
-    // },
-    // {
-    //   id:3,
-    //   title:'test3',
-    //   tag:'',
-    //   page:'weekly3',
-    //   coverImg:'/static/img/thumb/weekly01.png',
-    // },
-    // {
-    //   id:4,
-    //   title:'test4',
-    //   tag:'',
-    //   page:'weekly4',
-    //   coverImg:'/static/img/thumb/weekly01.png',
-    // },
-    // {
-    //   id:5,
-    //   title:'test5',
-    //   tag:'',
-    //   page:'weekly5',
-    //   coverImg:'/static/img/thumb/weekly01.png',
-    // }
+    {
+      id:2,
+      title:'Credit Card Checkout',
+      tag:'',
+      page:'weekly2',
+      coverImg:'/static/img/thumb/weekly01.png',
+    }
   ]
 }
 
