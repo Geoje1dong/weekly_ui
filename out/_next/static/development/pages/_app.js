@@ -12142,7 +12142,7 @@ var _jsxFileName = "/Users/home/weekly-ui/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  body {\n    padding: 0;\n    margin: 0;\n    overflow-x:hidden;\n  }\n  ul{\n    list-style: none;\n    padding: 0;\n    margin: 0;\n  }\n  a{\n    color:inherit;\n    text-decoration:none;\n  }\n\n  button {\n    border: none;\n    margin: 0;\n    padding: 0;\n    width: auto;\n    overflow: visible;\n    background: transparent;\n    color: inherit;\n    font: inherit;\n    line-height: normal;\n    -webkit-font-smoothing: inherit;\n    -moz-osx-font-smoothing: inherit;\n    -webkit-appearance: none;\n    &::-moz-focus-inner {\n      border: 0;\n      padding: 0;\n    }\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  body {\n    padding: 0;\n    margin: 0;\n    overflow-x:hidden;\n    font-family: 'Noto Sans KR', sans-serif;\n  }\n  ul{\n    list-style: none;\n    padding: 0;\n    margin: 0;\n  }\n  a{\n    color:inherit;\n    text-decoration:none;\n  }\n\n  button {\n    border: none;\n    margin: 0;\n    padding: 0;\n    width: auto;\n    overflow: visible;\n    background: transparent;\n    color: inherit;\n    font: inherit;\n    line-height: normal;\n    -webkit-font-smoothing: inherit;\n    -moz-osx-font-smoothing: inherit;\n    -webkit-appearance: none;\n    &::-moz-focus-inner {\n      border: 0;\n      padding: 0;\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -12168,40 +12168,40 @@ var WeeklyUiApp = function WeeklyUiApp(_ref) {
     store: store,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 50
     },
     __self: this
   }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 51
     },
     __self: this
   }, __jsx("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 52
     },
     __self: this
   }, "Weekly UI challenge"), __jsx("link", {
+    href: "https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean",
     rel: "stylesheet",
-    href: "https://pattern.kivan-works.com/fonts/kredit.css",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     },
     __self: this
   })), __jsx(GlobalStyle, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 55
     },
     __self: this
   }), __jsx(Component, {
     prefix: prefix,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 56
     },
     __self: this
   }));
@@ -12267,7 +12267,13 @@ var initialState = {
     title: 'Credit Card Checkout',
     tag: '',
     page: 'weekly2',
-    coverImg: '/static/img/thumb/weekly01.png'
+    coverImg: '/static/img/thumb/weekly02.png'
+  }, {
+    id: 3,
+    title: 'Landing Page',
+    tag: '',
+    page: 'weekly3',
+    coverImg: '/static/img/thumb/weekly02.png'
   }]
 };
 var LOAD_POST_REQUEST = 'LOAD_POST_REQUEST'; // 포스터 1개 불러오기
