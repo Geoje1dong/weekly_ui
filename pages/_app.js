@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     overflow-x:hidden;
+    font-family: 'Noto Sans KR', sans-serif;
   }
   ul{
     list-style: none;
@@ -49,7 +50,7 @@ const WeeklyUiApp = ({ Component, store }) => {
     <Provider store={store}>
       <Head>
         <title>Weekly UI challenge</title>
-        <link rel="stylesheet" href="https://pattern.kivan-works.com/fonts/kredit.css" />
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet" />
       </Head>
       <GlobalStyle/>
       <Component prefix={prefix} />

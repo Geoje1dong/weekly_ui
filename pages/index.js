@@ -27,7 +27,7 @@ const Home = (props) => {
         <ul>
           {mainPost.map((abc) => (
             <li key={abc.id}>
-              <Link href={abc.page}><a>
+              <Link href={`/${abc.page}`}><a>
                 <LinkArrow>
                   <ArrowRight color='#fff' size={26} />
                 </LinkArrow>

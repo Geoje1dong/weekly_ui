@@ -14,7 +14,14 @@ export const initialState = {
       title:'Credit Card Checkout',
       tag:'',
       page:'weekly2',
-      coverImg:'/static/img/thumb/weekly01.png',
+      coverImg:'/static/img/thumb/weekly02.png',
+    },
+    {
+      id:3,
+      title:'Landing Page',
+      tag:'',
+      page:'weekly3',
+      coverImg:'/static/img/thumb/weekly02.png',
     }
   ]
 }
