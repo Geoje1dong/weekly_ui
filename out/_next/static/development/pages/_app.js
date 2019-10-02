@@ -12273,7 +12273,7 @@ var initialState = {
     title: 'Landing Page',
     tag: '',
     page: 'weekly3',
-    coverImg: '/static/img/thumb/weekly02.png'
+    coverImg: '/static/img/thumb/weekly03.png'
   }]
 };
 var LOAD_POST_REQUEST = 'LOAD_POST_REQUEST'; // 포스터 1개 불러오기
