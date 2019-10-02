@@ -57,7 +57,7 @@ export default function Weekly3(props){
       <ContentBox>
           <Box>
           
-            <Logo><img src='/static/img/landing/unnamed.jpg' alt='리짓군즈 로고'/></Logo>
+            <Logo><img src={`${props.prefix}/static/img/landing/unnamed.jpg`} alt='리짓군즈 로고'/></Logo>
             <ScaleSlide slideData={mainSlidesData}/>
             
             <SoundBar>
