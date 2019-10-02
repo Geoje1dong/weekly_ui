@@ -21,7 +21,7 @@ export const initialState = {
       title:'Landing Page',
       tag:'',
       page:'weekly3',
-      coverImg:'/static/img/thumb/weekly02.png',
+      coverImg:'/static/img/thumb/weekly03.png',
     }
   ]
 }

@@ -50,7 +50,7 @@ const Label = styled.div`
   position:absolute;
   bottom:20px;
   left:20px;
-  background:rgba(0,0,0,0.17);
+  background:rgba(0,0,0,0.6);
   border-radius:100px;
   box-shadow: 0px 4px 20px 0px rgba(61,68,78,0.1);
   z-index:1;
@@ -63,7 +63,7 @@ const LinkArrow = styled.div`
   width:40px;
   height:40px;
   display:flex;
-  background:rgba(0,0,0,0.17);
+  background:rgba(0,0,0,0.6);
   border-radius:50%;
   align-items:center;
   justify-content:center;
