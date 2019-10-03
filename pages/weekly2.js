@@ -103,7 +103,7 @@ export default function Weekly2(props){
               <Grid3>
                 <RandomBox>
                   <Button theme="dark" size='xs' onClick={handleClick}>{buttonName}</Button>
-                  <em>55., 44., 64., 35., 37., 94.</em>
+                  <em>ex) 55., 44., 64., 35., 37., 94.</em>
                   <Input
                     theme='dark'
                     type='tel'
@@ -193,14 +193,14 @@ const RandomBox = styled.span`
   >button{
     position:absolute;
     right:10px;
-    top:-4px;
+    top:-20px;
     z-index:2;
   }
   >em{
     font-size:0.7em;
     position:absolute;
-    right:106px;
-    top:3px;
+    right:10px;
+    top:4px;
     opacity:0.8;
   }
 `

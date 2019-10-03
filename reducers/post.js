@@ -7,21 +7,21 @@ export const initialState = {
       title:'Sign Up, Sign In',
       tag:'',
       page:'weekly1',
-      coverImg:'/static/img/thumb/weekly01.png',
+      coverImg:'https://i.ibb.co/7RPNSjk/weekly01.png',
     },
     {
       id:2,
       title:'Credit Card Checkout',
       tag:'',
       page:'weekly2',
-      coverImg:'/static/img/thumb/weekly02.png',
+      coverImg:'https://i.ibb.co/NyTrJJV/weekly02.png',
     },
     {
       id:3,
       title:'Landing Page',
       tag:'',
       page:'weekly3',
-      coverImg:'/static/img/thumb/weekly03.png',
+      coverImg:'https://i.ibb.co/q57hczT/weekly03.png',
     }
   ]
 }

@@ -55,9 +55,8 @@ export default function Weekly3(props){
     <>
       <ContentLayout prefix={props.prefix}/>
       <ContentBox>
-          <Box>
-          
-            <Logo><img src={`${props.prefix}/static/img/landing/unnamed.jpg`} alt='리짓군즈 로고'/></Logo>
+          <Box>          
+            <Logo><img src='https://i.ibb.co/1RtXb71/unnamed.jpg' alt='리짓군즈 로고'/></Logo>
             <ScaleSlide slideData={mainSlidesData}/>
             
             <SoundBar>
@@ -66,14 +65,14 @@ export default function Weekly3(props){
               
             </SoundBar>
           </Box>
-          <Background />
+          <Background background='https://i.ibb.co/1RtXb71/unnamed.jpg'/>
       </ContentBox>
     </>
   )
 }
 
 const Background = styled.div`
-  background-image: url(/static/img/landing/unnamed.jpg);
+  background-image: url(${props => props.background});
   background-repeat: repeat;
   height: 200%;
   width: 200%;

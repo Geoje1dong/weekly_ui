@@ -27,7 +27,7 @@ const Home = (props) => {
         <ul>
           {mainPost.map((abc) => (
             <li key={abc.id}>
-              <Link href={`/${abc.page}`}><a>
+              <Link href={`${homelink}${abc.page}`}><a>
                 <LinkArrow>
                   <ArrowRight color='#fff' size={26} />
                 </LinkArrow>
@@ -35,7 +35,6 @@ const Home = (props) => {
                   {abc.title}
                 </Label>
                 <img src={`${props.prefix}${abc.coverImg}`} alt={abc.title}/>
-
               </a></Link>
             </li>
           ))}

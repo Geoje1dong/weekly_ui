@@ -49,25 +49,45 @@ function getPrintSpace(value, lengthType){
   return value
 }
 
+function getPrintCompany(comapny){
+  if(comapny === 'bc'){
+    return <img src="https://i.ibb.co/8g8cfNG/bc.png" alt="bc" border="0"></img>
+  }
+  else if(comapny === 'hyundai'){
+    return <img src="https://i.ibb.co/XJS4PRS/hyundai.png" alt="hyundai" border="0"></img>
+  }
+  else if(comapny === 'kb'){
+    return <img src="https://i.ibb.co/KxTKkpZ/kb.png" alt="kb" border="0"></img>
+  }
+  else if(comapny === 'lottecard'){
+    return <img src="https://i.ibb.co/DL1SLPn/lottecard.png" alt="lottecard" border="0"></img>
+  }
+  else if(comapny === 'samsung'){
+    return <img src="https://i.ibb.co/t3WhvdM/samsung.png" alt="samsung" border="0"></img>
+  }
+  else if(comapny === 'shinhan'){
+    return <img src="https://i.ibb.co/PtyVMcS/shinhan.png" alt="shinhan" border="0"></img>
+  }
+}
+
 export default function Card({number, focus, name, cvc, expiry, password, cardCompany}){
 
   const cardNumber = getPrintNumber(number);
   const cardExpiry = getPrintExpiry(expiry);
   const cardCvc = getPrintSpace(cvc, 3);
   const cardPassword = getPrintSpace(password, 2);
-  
+  const Company = getPrintCompany(cardCompany)
+
   return(
     <>
     <CardStyle focus={focus}>
       <CardFront focus={focus}>
         <CardBackground company={cardCompany}/>
         <CardCompany focus={focus} company={cardCompany}>
-          { cardCompany &&
-            <img src={`static/img/card/${cardCompany}.png`} alt={`${cardCompany} logo`}/>
-          }
+          {Company}
         </CardCompany>
         <Npay>
-          <img src="static/img/thumb/npay.png" alt='n pay logo'/>
+          <img src="https://i.ibb.co/gTxQVLQ/npay.png" alt="npay" border="0"></img>
         </Npay>
         <CardNumber focus={focus}>
           {cardNumber}
