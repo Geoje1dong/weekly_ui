@@ -12261,7 +12261,7 @@ var initialState = {
     title: 'Calculator',
     tag: '',
     page: 'weekly4',
-    coverImg: 'https://i.ibb.co/q57hczT/weekly03.png'
+    coverImg: 'https://i.ibb.co/FK55Gy5/weekly04.png'
   }, {
     id: 3,
     title: 'Landing Page',
