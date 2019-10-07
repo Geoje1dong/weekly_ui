@@ -258,4 +258,5 @@ const ContentBox = styled.div`
   box-shadow:0 10px 20px rgba(0,0,0,.3);
   align-items:center;
   justify-content:center;
+  min-height:586px;
 `

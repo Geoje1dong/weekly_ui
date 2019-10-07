@@ -4,6 +4,8 @@ import ContentLayout from '../components/contentLayout'
 import styled, {css, keyframes} from 'styled-components'
 import ScaleSlide from '../components/scaleSlide'
 
+import {ShoppingBag, Link, Youtube} from 'react-feather'
+
 const mainSlidesData = [
   {
     first: 0,
@@ -59,17 +61,58 @@ export default function Weekly3(props){
             <Logo><img src='https://i.ibb.co/1RtXb71/unnamed.jpg' alt='리짓군즈 로고'/></Logo>
             <ScaleSlide slideData={mainSlidesData}/>
             
-            <SoundBar>
-              <iframe width="100%" height="20px" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/328531073&auto_play=true&amp;color=ff5500"></iframe>
+            <Footer>
+              <iframe width="900px" height="20px" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/328531073&auto_play=true&amp;color=ff5500"></iframe>
               {/* <iframe width="100%" height="20px" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/882127774&color=%23ff5500&auto_play=true&amp;color=ff5500"></iframe> */}
-              
-            </SoundBar>
+              <ALink target='_blank' href='https://smartstore.naver.com/legitgoons'>
+                <ShoppingBag size={14} color='#fff'/>
+                Shop
+              </ALink>
+              <ALink target='_blank' href='https://www.youtube.com/channel/UCPxyfoXtMyqYdKeTMOjgK0Q'>
+                <Youtube size={14} color='#fff'/>
+                Youtube
+              </ALink>
+              <ALink target='_blank' href='https://www.legitgoons.com/'>
+                <Link size={14} color='#fff'/>
+                LEGIT GOONS
+              </ALink>
+            </Footer>
           </Box>
           <Background background='https://i.ibb.co/1RtXb71/unnamed.jpg'/>
       </ContentBox>
     </>
   )
 }
+
+const ALink = styled.a`
+  margin-left:12px;
+  position:relative;
+  background:none; 
+  color:#rgba(255,255,255,0.6); 
+  // border:1px solid rgba(255,255,255,0.6); 
+  box-shadow:0 2px 0 rgba(0,0,0,0.045);
+  text-shadow:0 -1px 0 rgba(0,0,0,0.12);
+  transition: all .3s;
+  cursor:pointer;
+  font-weight:inherit;
+  display:inline-block;
+  padding:2px 8px 2px 24px;
+  font-size:0.6rem;
+  border-radius:4px;
+  >svg{
+    position:absolute;
+    top:3px;
+    left:5px
+  }
+  &:hover{
+    outline:none;
+    background:rgba(255,255,255, 0.9); 
+    color:#000;
+    >svg{
+      stroke:rgba(0,0,0, 0.9);
+    }
+  }
+`
 
 const Background = styled.div`
   background-image: url(${props => props.background});
@@ -103,7 +146,7 @@ const Logo = styled.div`
   }
 `
 
-const SoundBar = styled.div`
+const Footer = styled.div`
   background:#000;
   position:absolute;
   bottom:2rem;
@@ -114,6 +157,10 @@ const SoundBar = styled.div`
   font-weight:200;
   .sc-link-dark > span{
     color:#fff;
+  }
+  display:flex;
+  >iframe{
+    margin-right:auto;
   }
 `
 

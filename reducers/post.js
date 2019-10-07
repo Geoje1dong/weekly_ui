@@ -3,11 +3,18 @@ import produce from 'immer'
 export const initialState = {
   mainPost: [
     {
-      id:1,
-      title:'Sign Up, Sign In',
+      id:4,
+      title:'Calculator',
       tag:'',
-      page:'weekly1',
-      coverImg:'https://i.ibb.co/7RPNSjk/weekly01.png',
+      page:'weekly4',
+      coverImg:'https://i.ibb.co/q57hczT/weekly03.png',
+    },
+    {
+      id:3,
+      title:'Landing Page',
+      tag:'',
+      page:'weekly3',
+      coverImg:'https://i.ibb.co/q57hczT/weekly03.png',
     },
     {
       id:2,
@@ -17,12 +24,12 @@ export const initialState = {
       coverImg:'https://i.ibb.co/NyTrJJV/weekly02.png',
     },
     {
-      id:3,
-      title:'Landing Page',
+      id:1,
+      title:'Sign Up, Sign In',
       tag:'',
-      page:'weekly3',
-      coverImg:'https://i.ibb.co/q57hczT/weekly03.png',
-    }
+      page:'weekly1',
+      coverImg:'https://i.ibb.co/7RPNSjk/weekly01.png',
+    },
   ]
 }
 

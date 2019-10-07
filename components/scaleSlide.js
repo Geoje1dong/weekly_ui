@@ -250,7 +250,7 @@ const ShowBackground = styled.div`
 `
 
 const SlideStyle = styled.li`
-
+  cursor:pointer;
   position:absolute;
   top:0;
   left:0;

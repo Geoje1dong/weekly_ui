@@ -6,18 +6,18 @@ import { ArrowRight } from 'react-feather'
 
 const Home = (props) => {
   const {mainPost} = useSelector(state => state.post)
-  const homelink = process.env.NODE_ENV === 'production' ? '/weekly_ui' : '/';
+  const homelink = process.env.NODE_ENV === 'production' ? '/weekly_ui' : '';
 
   return(
     <>
       <HeaderBox>
         <HeaderContent>
-          <Link href={homelink}><a><Logo><strong>Weekly UI</strong><br />challenge,</Logo></a></Link>
+          <Link href={`${homelink}`}><a><Logo><strong>Weekly UI</strong><br />challenge,</Logo></a></Link>
           <Intro>
             Weekly UI 챌린지를 시작하였습니다.<br />
-            그 이유는 UI 디자인을 연습하고 개발하며 실험 및 많은 시행착오를 통해 경험을 쌓기 위해서입니다.<br />
-            저는 기술을 향상하는 가장 빠른 방법이 많은 것을 만들고 경험해 보는 것이라고 생각합니다.<br />
-            이 운동은 저의 시각적인 디자인 기술 및 UI 개발을 향상하며 패턴을 만들며 왜 그런 패턴이 사용되고 있는지를 이해하는 것에도 많은 도움을 줄 것이라고 믿고 있습니다.
+            UI 디자인을 연습하고 개발하며 실험 및 많은 시행착오를 통해 경험을 쌓기 위해서입니다.<br />
+            {/* 저는 기술을 향상하는 가장 빠른 방법이 많은 것을 만들고 경험해 보는 것이라고 생각합니다.<br /> */}
+            이 운동은 저의 시각적인 디자인 기술 및 UI 개발을 향상하며 패턴을 만들며 왜 그런 패턴이 사용되고 있는지를 이해하는 것에도 많은 도움을 줄 것으로 생각합니다.
             {/* <img src='/static/img/thumb/flower.jpg' alt='꽃 그림'/> */}
           </Intro>
           {/* <Input placeholder='search' /> */}
@@ -27,14 +27,14 @@ const Home = (props) => {
         <ul>
           {mainPost.map((abc) => (
             <li key={abc.id}>
-              <Link href={`${homelink}${abc.page}`}><a>
+              <Link href={`${homelink}/${abc.page}`}><a>
                 <LinkArrow>
                   <ArrowRight color='#fff' size={26} />
                 </LinkArrow>
                 <Label>
                   {abc.title}
                 </Label>
-                <img src={`${props.prefix}${abc.coverImg}`} alt={abc.title}/>
+                <img src={abc.coverImg} alt={abc.title}/>
               </a></Link>
             </li>
           ))}
@@ -71,6 +71,7 @@ const LinkArrow = styled.div`
 `
 
 const Intro = styled.p`
+
   position:relative;
   font-size:14px;
   line-height:2.2em;
@@ -86,7 +87,7 @@ const Intro = styled.p`
 `
 
 const ContentBox = styled.div`
-  // max-width:1100px;
+  max-width:1920px;
   z-index:1;
   box-sizing:border-box;
   padding:100px;
@@ -165,6 +166,7 @@ const HeaderContent = styled.div`
 `
 
 const HeaderBox = styled.div`
+  max-width:1920px;
   box-sizing:border-box;
   position:relative;
   width:100%;

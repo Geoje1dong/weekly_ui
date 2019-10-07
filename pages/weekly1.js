@@ -167,8 +167,16 @@ const BeerImg = styled.div`
   background-size: cover;
   z-index:-1;
   >img{
-    position:relative;
-    
+    position:relative; 
+  }
+  &:after{
+    position:absolute;
+    content:'';
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    // background:rgba(28, 28, 28, 0.7);
   }
 `
 
@@ -308,8 +316,8 @@ const InfomationBox = styled.div`
 
 const SignUpBox = styled.div`
   transition:all 0.5s;
-  width:80%;
-  height:70%;
+  width:1290px;
+  height:684px;
   border-radius:8px;
   display:block;
   position:relative;
@@ -321,6 +329,7 @@ const ContentBox = styled.div`
   display:flex;
   width:84vw;
   height:100%; 
+  min-height:740px;
   background:linear-gradient(180deg, #ffd04c 0%, #F29B18 100%), #F2B918;
   z-index:3;
   top:0;
