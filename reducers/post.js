@@ -5,7 +5,7 @@ export const initialState = {
     {
       id:4,
       title:'Calculator',
-      tag:'',
+      tag:'tag',
       page:'weekly4',
       coverImg:'https://i.ibb.co/FK55Gy5/weekly04.png',
     },
